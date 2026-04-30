@@ -20,9 +20,9 @@ export default function ProductInputForm({ form, setForm, onGenerate, onSave, on
           <option value="gradient">SaaS Gradient</option>
         </select>
 
-        <button onClick={onGenerate} className="w-full py-4 rounded-2xl bg-black text-white flex justify-center gap-2"><Sparkles size={20}/> Generate Sales Page</button>
-        <button onClick={onSave} className="w-full py-4 rounded-2xl bg-indigo-600 text-white flex justify-center gap-2"><Save size={20}/> Save This Page</button>
-        <button onClick={onExport} className="w-full py-4 rounded-2xl bg-emerald-600 text-white flex justify-center gap-2"><Download size={20}/> Export HTML</button>
+        <button onClick={onGenerate} className="cursor-pointer w-full py-4 rounded-2xl bg-black text-white flex justify-center gap-2"><Sparkles size={20}/> Generate Sales Page</button>
+        <button onClick={onSave} className="cursor-pointer w-full py-4 rounded-2xl bg-indigo-600 text-white flex justify-center gap-2"><Save size={20}/> Save This Page</button>
+        <button onClick={onExport} className="cursor-pointer w-full py-4 rounded-2xl bg-emerald-600 text-white flex justify-center gap-2"><Download size={20}/> Export HTML</button>
       </div>
     </section>
   )

@@ -9,6 +9,7 @@ import { mockGenerateSalesCopy } from '@/lib/mock-ai'
 import { savePage } from '@/lib/storage'
 import { exportHTML } from '@/lib/export-html'
 import { toast } from 'sonner'
+import { useRouter } from 'next/navigation'
 
 export default function GeneratorPage() {
   const [form, setForm] = useState({
@@ -33,7 +34,7 @@ export default function GeneratorPage() {
   ]
 
   useEffect(() => {
-    let interval:any
+    let interval: any
     if (loading) {
       let i = 0
       interval = setInterval(() => {
@@ -52,10 +53,13 @@ export default function GeneratorPage() {
     setLoading(false)
   }
 
+  const router = useRouter()
+
   const handleSave = () => {
     if (!generated) return toast.error('Generate first')
     savePage({ ...form, generated })
-    toast.success('Sales page saved successfully')
+    toast.success('Saved to Dashboard Library')
+    setTimeout(() => router.push('/dashboard'), 800)
   }
 
   const handleExport = () => {
@@ -75,7 +79,7 @@ export default function GeneratorPage() {
 
   return (
     <ProtectedRoute>
-      <main className="min-h-screen flex bg-slate-100">
+      <main className="min-h-screen flex bg-slate-100 mt-20 md:mt-0">
         <DashboardSidebar />
         <section className="flex-1 p-4 md:p-8">
           <div className="grid lg:grid-cols-2 gap-8 max-w-7xl mx-auto">

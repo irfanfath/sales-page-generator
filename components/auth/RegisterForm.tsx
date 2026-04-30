@@ -28,7 +28,7 @@ export default function RegisterForm() {
       <input className="w-full p-4 rounded-2xl border mb-4" placeholder="Name" onChange={(e) => setName(e.target.value)} />
       <input className="w-full p-4 rounded-2xl border mb-4" placeholder="Email" onChange={(e) => setEmail(e.target.value)} />
       <input type="password" className="w-full p-4 rounded-2xl border mb-6" placeholder="Password" onChange={(e) => setPassword(e.target.value)} />
-      <button onClick={handleRegister} className="w-full py-4 rounded-2xl bg-black text-white">Register</button>
+      <button onClick={handleRegister} className="w-full py-4 rounded-2xl bg-black text-white cursor-pointer">Register</button>
     </div>
   )
 }
