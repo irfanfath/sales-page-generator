@@ -1,31 +1,36 @@
-'use client'
+import { RefreshCcw, Rocket, Wand2 } from "lucide-react"
+import LoadingPreview from "./LoadingPreview"
+import MinimalTemplate from "../templates/MinimalTemplate"
+import DarkTemplate from "../templates/DarkTemplate"
+import GradientTemplate from "../templates/GradientTemplate"
+import { toast } from "sonner"
 
-import { RefreshCcw } from 'lucide-react'
-import MinimalTemplate from '@/components/templates/MinimalTemplate'
-import DarkTemplate from '@/components/templates/DarkTemplate'
-import GradientTemplate from '@/components/templates/GradientTemplate'
-import LoadingPreview from './LoadingPreview'
-import { toast } from 'sonner'
-
-export default function PreviewPanel({ loading, generated, template, aiMessage, onRegenHeadline, onRegenCTA }: any) {
-  if (loading) return <div className="bg-white rounded-3xl shadow-xl p-8 min-h-[700px]"><LoadingPreview message={aiMessage} /></div>
+export function PreviewPanel({ loading, generated, template, aiMessage, onRegenHeadline, onRegenCTA }: any) {
+  if (loading) return <div className="bg-white rounded-[32px] shadow-2xl p-8 min-h-[900px]"><LoadingPreview message={aiMessage} /></div>
 
   return (
-    <section className="bg-white rounded-3xl shadow-xl p-8 min-h-[700px] overflow-auto">
-      {!generated && <div className="h-full flex items-center justify-center text-slate-400 text-xl">Your generated landing page preview will appear here.</div>}
+    <section className="bg-white rounded-[32px] shadow-2xl min-h-[900px] overflow-hidden border border-slate-50">
+      <div className="px-8 py-5 border-b flex justify-between items-center bg-slate-50 border-gray-400">
+        <h2 className="font-black text-xl">Live Landing Page Preview</h2>
+        <Rocket className="text-blue-800" />
+      </div>
 
-      {generated && (
-        <>
-          {template === 'minimal' && <MinimalTemplate generated={generated} onCTA={()=>toast.success('Lead captured successfully!')} />}
-          {template === 'dark' && <DarkTemplate generated={generated} />}
-          {template === 'gradient' && <GradientTemplate generated={generated} />}
+      <div className="p-8 overflow-auto">
+        {!generated && <div className="h-[700px] flex items-center justify-center text-slate-400 text-xl">Your AI generated landing page will appear here.</div>}
 
-          <div className="grid grid-cols-2 gap-4 mt-8">
-            <button onClick={onRegenHeadline} className="py-3 rounded-2xl bg-slate-200 flex justify-center gap-2 cursor-pointer"><RefreshCcw size={18}/> Regenerate Headline</button>
-            <button onClick={onRegenCTA} className="py-3 rounded-2xl bg-slate-200 flex justify-center gap-2 cursor-pointer"><RefreshCcw size={18}/> Regenerate CTA</button>
-          </div>
-        </>
-      )}
+        {generated && (
+          <>
+            {template === 'minimal' && <MinimalTemplate generated={generated} onCTA={()=>toast.success('Lead captured successfully!')} />}
+            {template === 'dark' && <DarkTemplate generated={generated} />}
+            {template === 'gradient' && <GradientTemplate generated={generated} />}
+
+            <div className="grid md:grid-cols-2 gap-4 mt-10">
+              <button onClick={onRegenHeadline} className="py-4 rounded-2xl bg-slate-100 flex justify-center gap-2 cursor-pointer font-semibold"><RefreshCcw/> Regenerate Headline</button>
+              <button onClick={onRegenCTA} className="py-4 rounded-2xl bg-slate-100 flex justify-center gap-2 cursor-pointer font-semibold"><Wand2/> Regenerate CTA</button>
+            </div>
+          </>
+        )}
+      </div>
     </section>
   )
 }

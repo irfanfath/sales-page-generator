@@ -62,7 +62,7 @@ export default function DashboardSidebar() {
             type="button"
             onClick={() => handleNavigate('/dashboard')}
             className={`flex gap-3 w-full p-3 rounded-xl ${
-              pathname === '/dashboard' ? 'bg-white/20' : 'bg-white/10'
+              pathname === '/dashboard' ? 'bg-white/20' : ''
             }`}
           >
             <BarChart3 /> Dashboard
@@ -72,7 +72,7 @@ export default function DashboardSidebar() {
             type="button"
             onClick={() => handleNavigate('/generator')}
             className={`flex gap-3 w-full p-3 rounded-xl ${
-              pathname === '/generator' ? 'bg-white/20' : 'bg-white/10'
+              pathname === '/generator' ? 'bg-white/20' : ''
             }`}
           >
             <Sparkles /> Generate Page

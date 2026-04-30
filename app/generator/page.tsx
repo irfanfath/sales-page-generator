@@ -3,13 +3,13 @@
 import { useEffect, useState } from 'react'
 import ProtectedRoute from '@/components/common/ProtectedRoute'
 import DashboardSidebar from '@/components/dashboard/DashboardSidebar'
-import ProductInputForm from '@/components/forms/ProductInputForm'
-import PreviewPanel from '@/components/preview/PreviewPanel'
 import { mockGenerateSalesCopy } from '@/lib/mock-ai'
 import { savePage } from '@/lib/storage'
 import { exportHTML } from '@/lib/export-html'
 import { toast } from 'sonner'
 import { useRouter } from 'next/navigation'
+import { ProductInputForm } from '@/components/forms/ProductInputForm'
+import { PreviewPanel } from '@/components/preview/PreviewPanel'
 
 export default function GeneratorPage() {
   const [form, setForm] = useState({
@@ -82,7 +82,7 @@ export default function GeneratorPage() {
       <main className="min-h-screen flex bg-slate-100 mt-20 md:mt-0">
         <DashboardSidebar />
         <section className="flex-1 p-4 md:p-8">
-          <div className="grid lg:grid-cols-2 gap-8 max-w-7xl mx-auto">
+          <div className="grid lg:grid-cols-2 gap-8 mx-auto">
             <ProductInputForm
               form={form}
               setForm={setForm}
