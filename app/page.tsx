@@ -17,25 +17,21 @@ export default function HomePage() {
 
       <section className="max-w-7xl mx-auto px-8 py-24 grid md:grid-cols-2 gap-16 items-center">
         <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }}>
-          <h2 className="text-6xl font-bold leading-tight">
+          <h2 className="text-5xl md:text-6xl font-bold leading-tight">
             Turn Raw Product Info Into <span className="text-indigo-600">High-Converting Sales Pages</span>
           </h2>
           <p className="mt-6 text-lg text-slate-600">
-            Generate compelling landing page copy, polished layouts, and persuasive CTA sections in seconds.
+            Generate persuasive landing page copy, polished layouts, and clear CTAs in seconds.
           </p>
           <Link href="/register" className="inline-block mt-8 px-8 py-4 rounded-2xl bg-black text-white text-lg">
             Generate My Sales Page
           </Link>
         </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          className="bg-white rounded-3xl shadow-2xl p-8"
-        >
-          <div className="space-y-6">
+        <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} className="bg-white rounded-3xl shadow-2xl p-8">
+          <div className="space-y-6 text-lg">
             <div className="flex gap-4 items-center"><Sparkles /> AI Copywriting Engine</div>
-            <div className="flex gap-4 items-center"><LayoutTemplate /> Landing Page Templates</div>
+            <div className="flex gap-4 items-center"><LayoutTemplate /> Multi Landing Templates</div>
             <div className="flex gap-4 items-center"><Wand2 /> One Click Regeneration</div>
           </div>
         </motion.div>

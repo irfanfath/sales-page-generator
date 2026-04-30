@@ -15,7 +15,7 @@ export default function RegisterPage() {
   }
 
   return (
-    <main className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-100 to-indigo-100 px-4">
+    <main className="min-h-screen flex items-center justify-center px-4">
       <div className="w-full max-w-md bg-white/70 backdrop-blur-xl rounded-3xl shadow-2xl p-10">
         <h1 className="text-3xl font-bold mb-8 text-center">Create Account</h1>
         <input className="w-full p-4 rounded-2xl border mb-4" placeholder="Name" onChange={(e)=>setName(e.target.value)} />
