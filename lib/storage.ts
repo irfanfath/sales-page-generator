@@ -1,13 +1,25 @@
-export const getSavedPages = () => JSON.parse(localStorage.getItem('saved-sales-pages') || '[]')
+import { getSession } from './auth'
+
+export const getSavedPages = () => {
+  const session = getSession()
+  const all = JSON.parse(localStorage.getItem('saved-sales-pages') || '{}')
+  return all[session?.email] || []
+}
 
 export const savePage = (page:any) => {
-  const existing = getSavedPages()
+  const session = getSession()
+  const all = JSON.parse(localStorage.getItem('saved-sales-pages') || '{}')
+  const existing = all[session.email] || []
   existing.push(page)
-  localStorage.setItem('saved-sales-pages', JSON.stringify(existing))
+  all[session.email] = existing
+  localStorage.setItem('saved-sales-pages', JSON.stringify(all))
 }
 
 export const deletePage = (index:number) => {
-  const existing = getSavedPages()
+  const session = getSession()
+  const all = JSON.parse(localStorage.getItem('saved-sales-pages') || '{}')
+  const existing = all[session.email] || []
   existing.splice(index,1)
-  localStorage.setItem('saved-sales-pages', JSON.stringify(existing))
+  all[session.email] = existing
+  localStorage.setItem('saved-sales-pages', JSON.stringify(all))
 }
