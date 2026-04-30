@@ -1,14 +1,25 @@
 'use client'
 
-import { Save, Sparkles, Download, Rocket, Layers3, Wand2, BadgeDollarSign, Users2, Gem, RefreshCcw } from 'lucide-react'
+import { Save, Sparkles, Download, Layers3, BadgeDollarSign, Users2, Gem } from 'lucide-react'
 import { Field } from './Field'
 
-export function ProductInputForm({ form, setForm, onGenerate, onSave, onExport }: any) {
+export function ProductInputForm({
+  form,
+  setForm,
+  onGenerate,
+  onSave,
+  onExport,
+  generated
+}: any) {
+  const disabledAction = !generated
+
   return (
     <section className="bg-white rounded-[32px] shadow-2xl border border-slate-200 overflow-hidden">
       <div className="px-8 py-7 border-b bg-gradient-to-r from-blue-950 to-blue-800 text-white">
         <h1 className="text-3xl font-black">Create Product Page</h1>
-        <p className="text-blue-100 mt-2">Define your product identity to generate a conversion-focused landing page.</p>
+        <p className="text-blue-100 mt-2">
+          Define your product identity to generate a conversion-focused landing page.
+        </p>
       </div>
 
       <div className="p-8 grid md:grid-cols-2 gap-6">
@@ -19,17 +30,27 @@ export function ProductInputForm({ form, setForm, onGenerate, onSave, onExport }
 
         <div className="md:col-span-2">
           <label className="text-xs font-bold uppercase text-slate-400">Product Description</label>
-          <textarea className="mt-2 w-full p-4 rounded-2xl border bg-slate-50 min-h-[120px] border-gray-200" onChange={(e) => setForm({ ...form, description: e.target.value })} />
+          <textarea
+            className="mt-2 w-full p-4 rounded-2xl border bg-slate-50 min-h-[120px] border-gray-200"
+            onChange={(e) => setForm({ ...form, description: e.target.value })}
+          />
         </div>
 
         <div className="md:col-span-2">
           <label className="text-xs font-bold uppercase text-slate-400">Key Features</label>
-          <input className="mt-2 border-gray-200 w-full p-4 rounded-2xl border bg-slate-50" placeholder="AI copywriting, analytics dashboard, CRM sync" onChange={(e) => setForm({ ...form, features: e.target.value })} />
+          <input
+            className="mt-2 border-gray-200 w-full p-4 rounded-2xl border bg-slate-50"
+            placeholder="AI copywriting, analytics dashboard, CRM sync"
+            onChange={(e) => setForm({ ...form, features: e.target.value })}
+          />
         </div>
 
         <div className="md:col-span-2">
           <label className="text-xs font-bold uppercase text-slate-400">Template Style</label>
-          <select className="mt-2 w-full p-4 rounded-2xl border bg-slate-50 border-gray-200" onChange={(e) => setForm({ ...form, template: e.target.value })}>
+          <select
+            className="mt-2 w-full p-4 rounded-2xl border bg-slate-50 border-gray-200"
+            onChange={(e) => setForm({ ...form, template: e.target.value })}
+          >
             <option value="minimal">Minimal White</option>
             <option value="dark">Dark Premium</option>
             <option value="gradient">SaaS Gradient</option>
@@ -38,9 +59,39 @@ export function ProductInputForm({ form, setForm, onGenerate, onSave, onExport }
       </div>
 
       <div className="p-8 bg-slate-50 border-t border-gray-200 grid md:grid-cols-3 gap-4">
-        <button onClick={onGenerate} className="cursor-pointer py-4 rounded-2xl bg-blue-900 text-white flex justify-center gap-2 font-bold"><Sparkles /> Generate Sales Page</button>
-        <button onClick={onSave} className="cursor-pointer py-4 rounded-2xl bg-indigo-600 text-white flex justify-center gap-2 font-bold"><Save /> Save This Page</button>
-        <button onClick={onExport} className="cursor-pointer py-4 rounded-2xl bg-emerald-600 text-white flex justify-center gap-2 font-bold"><Download /> Export HTML</button>
+        <button
+          onClick={onGenerate}
+          className="cursor-pointer py-4 rounded-2xl bg-blue-900 text-white flex justify-center gap-2 font-bold hover:bg-blue-800 transition"
+        >
+          <Sparkles />
+          Generate Sales Page
+        </button>
+
+        <button
+          onClick={onSave}
+          disabled={disabledAction}
+          className={`py-4 rounded-2xl flex justify-center gap-2 font-bold transition ${
+            disabledAction
+              ? 'bg-slate-300 text-slate-500 cursor-not-allowed'
+              : 'bg-indigo-600 text-white cursor-pointer hover:bg-indigo-500'
+          }`}
+        >
+          <Save />
+          Save This Page
+        </button>
+
+        <button
+          onClick={onExport}
+          disabled={disabledAction}
+          className={`py-4 rounded-2xl flex justify-center gap-2 font-bold transition ${
+            disabledAction
+              ? 'bg-slate-300 text-slate-500 cursor-not-allowed'
+              : 'bg-emerald-600 text-white cursor-pointer hover:bg-emerald-500'
+          }`}
+        >
+          <Download />
+          Export HTML
+        </button>
       </div>
     </section>
   )

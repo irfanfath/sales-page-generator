@@ -89,6 +89,7 @@ export default function GeneratorPage() {
               onGenerate={handleGenerate}
               onSave={handleSave}
               onExport={handleExport}
+              generated={generated}
             />
 
             <PreviewPanel
