@@ -2,17 +2,17 @@ export const mockGenerateSalesCopy = async (data: any) => {
   await new Promise((resolve) => setTimeout(resolve, 2500))
 
   return {
-    headline: `Transform Your Results with ${data.productName}`,
-    subheadline: `The smarter way for ${data.audience} to achieve faster and better outcomes.`,
-    description: `${data.productName} is designed to help users solve ${data.description} with a premium and reliable solution.`,
+    headline: `Unlock Better Results with ${data.productName}`,
+    subheadline: `Built for ${data.audience} who want speed, efficiency, and growth.`,
+    description: `${data.productName} helps eliminate the pain of ${data.description} by delivering a modern and highly optimized solution for today's market demand.`,
     benefits: [
-      'Increase efficiency instantly',
-      'Save time and reduce manual work',
-      'Premium user experience',
+      'Boost productivity with less manual effort',
+      'Increase customer trust and conversion',
+      'Easy to use and professionally designed',
     ],
-    features: data.features.split(','),
-    socialProof: 'Trusted by 10,000+ happy customers worldwide',
-    pricingText: `Only ${data.price} for complete access`,
-    ctaText: 'Get Started Today',
+    features: data.features.split(',').map((f: string) => f.trim()),
+    socialProof: 'Trusted by over 12,000+ users and fast-growing businesses.',
+    pricingText: `Start today for only ${data.price}`,
+    ctaText: 'Generate More Sales Now',
   }
 }
