@@ -16,7 +16,7 @@ export default function HomePage() {
 
     const users = JSON.parse(localStorage.getItem('ai-sales-users') || '[]')
     if (users.length === 0) {
-      users.push({ name:'Demo User', email:'demo@aisales.com', password:'123456' })
+      users.push({ name: 'Demo User', email: 'demo@aisales.com', password: '123456' })
       localStorage.setItem('ai-sales-users', JSON.stringify(users))
     }
   }, [])
@@ -40,7 +40,7 @@ export default function HomePage() {
           ) : (
             <>
               <Link href="/dashboard" className="px-5 py-2 rounded-xl bg-black text-white cursor-pointer">Dashboard</Link>
-              <button onClick={handleLogout} className="px-5 py-2 rounded-xl bg-red-500 text-white flex gap-2 items-center cursor-pointer"><LogOut size={16}/></button>
+              <button onClick={handleLogout} className="px-5 py-2 rounded-xl bg-red-500 text-white flex gap-2 items-center cursor-pointer"><LogOut size={16} /></button>
             </>
           )}
         </div>
@@ -62,6 +62,9 @@ export default function HomePage() {
             <div className="flex gap-4 items-center"><Sparkles /> AI Copywriting Engine</div>
             <div className="flex gap-4 items-center"><LayoutTemplate /> Multi Landing Templates</div>
             <div className="flex gap-4 items-center"><Wand2 /> One Click Regeneration</div>
+          </div>
+          <div className="mt-8 text-sm text-slate-500">
+            Demo Account: demo@aisales.com / 123456
           </div>
         </motion.div>
       </section>
